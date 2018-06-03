@@ -1,0 +1,31 @@
+<manifest>
+    <main-class>nullbots.nullhide.NullHide</main-class>
+    <name>NullHide</name>
+    <tag-line>Tan your hides. If you want.</tag-line><!--Max of 50 chars-->
+    <description>Tans hides with a portable crafter. Start in any bank, and set your crafter location, then unpause the
+        script.
+    </description><!--Max of 110 chars-->
+    <version>1.0.2</version>
+    <compatibility>
+        <game>RS3</game>
+    </compatibility>
+    <categories>
+        <category>MONEYMAKING</category>
+    </categories>
+    <!--Required to publish on the bot store-->
+    <internal-id>nullifer.nullhide</internal-id>
+    <!--The rest are optional-->
+    <open-source>false</open-source>
+    <hidden>false</hidden> <!--If you need to hide it from the bot store for maintenance-->
+    <access>public</access>
+    <price>0.05</price>
+    <tags>
+        <tag>leather</tag>
+        <tag>hide</tag>
+        <tag>tan</tag>
+        <tag>portable</tag>
+    </tags>
+    <resources>
+        <resource>nullbots/nullhide/ui/view/settings.fxml</resource>
+    </resources>
+</manifest>
