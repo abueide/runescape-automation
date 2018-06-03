@@ -15,7 +15,7 @@ class KotlinTemplate : TreeBot(), EmbeddableUI, SkillListener{
         FXMLLoader().also {
             it.setController((getPlatform()))
         }.let {
-            SimpleObjectProperty(it.load() as Node)
+            SimpleObjectProperty(it.load(javaClass.getResourceAsStream("nullbots/kotlintemplate/ui/main.fxml")) as Node)
         }
     }
 
