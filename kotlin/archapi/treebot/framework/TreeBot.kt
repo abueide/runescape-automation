@@ -6,8 +6,15 @@ abstract class TreeBot() : LoopingBot() {
 
     var rootTask: TreeTask = UnitLeaf()
 
+    var taskDebugger = false
+
     override fun onLoop() {
-        logger.debug(rootTask.findLeaf().javaClass.name)
+        if (taskDebugger)
+            logger.debug(rootTask.findLeaf().javaClass.name)
         rootTask.findLeaf().execute()
+    }
+
+    fun enableTaskDebugger() = {
+        taskDebugger = true
     }
 }
