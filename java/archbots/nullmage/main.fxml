@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="341.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="TOP_CENTER" prefHeight="46.0" prefWidth="341.0" spacing="5.0" VBox.vgrow="NEVER">
+            <children>
+                <Label text="Null">
+                    <font>
+                        <Font size="36.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="146.0" layoutY="10.0" text="Mage" textFill="#017ff5">
+                    <font>
+                        <Font size="36.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <Label fx:id="timelabel" text="time"/>
+        <Label text="xp" fx:id="xplabel"/>
+        <Label text="xphr" fx:id="xphrlabel"/>
+    </children>
+</VBox>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+         prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1"
+         xmlns="http://javafx.com/javafx/8.0.162-ea">
+    <tabs>
+        <Tab text="Stats">
+            <content>
+                <GridPane>
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                            <children>
+                                <Label text="Time" textFill="#22b3e8">
+                                    <font>
+                                        <Font name="System Bold" size="24.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" top="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0"
+                              GridPane.columnIndex="1">
+                            <children>
+                                <Label text="Gold" textFill="#d0a60f">
+                                    <font>
+                                        <Font name="System Bold" size="24.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" top="10.0"/>
+                            </padding>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0"
+                              GridPane.columnIndex="2">
+                            <children>
+                                <Label text="Exp" textFill="#00d327">
+                                    <font>
+                                        <Font name="System Bold" size="24.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" top="10.0"/>
+                            </padding>
+                        </HBox>
+                    </children>
+                </GridPane>
+            </content>
+        </Tab>
+        <Tab text="Settings">
+            <content>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <VBox prefHeight="367.0" prefWidth="517.0" spacing="10.0">
+                            <children>
+                                <ComboBox prefHeight="26.0" prefWidth="160.0" promptText="Rune Type"/>
+                                <CheckBox mnemonicParsing="false" text="Stamina Potions"/>
+                                <CheckBox mnemonicParsing="false" text="Rune Pouches"/>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="10.0" top="10.0"/>
+                            </HBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="367.0" prefWidth="298.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <VBox alignment="CENTER" prefHeight="367.0" prefWidth="190.0">
+                                    <children>
+                                        <ListView prefHeight="341.0" prefWidth="222.0" VBox.vgrow="ALWAYS"/>
+                                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="201.0"
+                                                text="Refresh Equipment"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+            </content>
+        </Tab>
+        <Tab text="About">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

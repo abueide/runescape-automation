@@ -1,0 +1,4 @@
+#aboutMain{  -fx-background-image: url("../images/space.png");
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+    }
