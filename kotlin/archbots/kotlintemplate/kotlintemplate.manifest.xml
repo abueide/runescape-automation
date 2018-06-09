@@ -20,6 +20,9 @@
         <tag>other</tag>
     </tags>
     <resources>
-        <resource>archmage/kotlintemplate/ui/view/main.fxml</resource>
+        <resource>src/resources/archbots/kotlintemplate/ui/fxml/main.fxml</resource>
+        <resource>src/resources/archbots/kotlintemplate/ui/fxml/skillpane.fxml</resource>
+        <resource>src/resources/archbots/kotlintemplate/ui/fxml/background.css</resource>
+        <resource>src/resources/archbots/kotlintemplate/ui/images/space.png</resource>
     </resources>
 </manifest>
