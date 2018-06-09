@@ -25,6 +25,6 @@
         <tag>portable</tag>
     </tags>
     <resources>
-        <resource>src/resources/archbots/nullhide/ui/fxml/settings.fxml</resource>
+        <resource>src/main/resources/archbots/nullhide/ui/fxml/settings.fxml</resource>
     </resources>
 </manifest>
