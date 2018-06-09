@@ -1,7 +1,7 @@
 package archbots.nullhide
 
 import com.runemate.game.api.script.framework.tree.BranchTask
-import archapi.treebot.tasks.location.ValidateArea
+import archapi.tasks.location.ValidateArea
 import archbots.nullhide.branches.IsCrafterPlaced
 import archbots.nullhide.util.PrefWrapper
 

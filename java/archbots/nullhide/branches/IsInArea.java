@@ -3,7 +3,7 @@ package archbots.nullhide.branches;
 import com.runemate.game.api.hybrid.region.Players;
 import com.runemate.game.api.script.framework.tree.BranchTask;
 import com.runemate.game.api.script.framework.tree.TreeTask;
-import archapi.treebot.tasks.location.WalkTo;
+import archapi.tasks.location.WalkTo;
 import archbots.nullhide.util.PrefWrapper;
 
 /**
