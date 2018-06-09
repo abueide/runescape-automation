@@ -1,6 +1,6 @@
 package archbots.archmage
 
-import archapi.treebot.framework.TreeBot
+import archapi.treebot.TreeBot
 import com.runemate.game.api.client.embeddable.EmbeddableUI
 import com.runemate.game.api.script.framework.listeners.SkillListener
 import com.runemate.game.api.script.framework.listeners.events.SkillEvent
@@ -9,8 +9,6 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import archbots.archmagebot.ui.controller.ArchMageController
 import com.runemate.game.api.hybrid.local.Skill
-import archbots.archmage.treebot.branches.SpellSelectedValidator
-import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
 class ArchMage : TreeBot(), EmbeddableUI, SkillListener{
     private val botInterfaceProperty by lazy {
@@ -22,24 +20,14 @@ class ArchMage : TreeBot(), EmbeddableUI, SkillListener{
     }
     init{
         setEmbeddableUI(this)
+        taskDebugger = true
     }
 
 
-    fun setTask(){
-        when(Skill.MAGIC.baseLevel){
-            in 1..2 -> rootTask = SpellSelectedValidator(Magic.WIND_STRIKE)
-            in 3..10 -> rootTask = SpellSelectedValidator(Magic.CONFUSE)
-            in 11..18 -> rootTask = SpellSelectedValidator(Magic.WEAKEN)
-            in 19..42 -> rootTask = SpellSelectedValidator(Magic.CURSE)
-            in 55..66 -> {}
-        }
-    }
 
     override fun onStart(vararg arguments: String?) {
-        setTask()
-        setLoopDelay(210, 310)
+        setLoopDelay(100, 220)
         eventDispatcher.addListener(this)
-        enableTaskDebugger()
     }
 
     override fun botInterfaceProperty() = botInterfaceProperty
@@ -48,7 +36,6 @@ class ArchMage : TreeBot(), EmbeddableUI, SkillListener{
 
     override fun onLevelUp(event: SkillEvent?) {
         if(event != null && event.skill == Skill.MAGIC){
-            setTask()
         }
     }
 

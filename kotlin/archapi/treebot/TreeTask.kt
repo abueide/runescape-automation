@@ -1,4 +1,4 @@
-package archapi.treebot.framework
+package archapi.treebot
 
 import com.runemate.game.api.hybrid.Environment
 

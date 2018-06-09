@@ -1,10 +1,10 @@
-package archapi.treebot.framework
+package archapi.treebot
 
 import com.runemate.game.api.script.framework.LoopingBot
 
 abstract class TreeBot() : LoopingBot() {
 
-    var rootTask: TreeTask = UnitLeaf()
+    var rootTask: TreeTask = UnitLeaf(this)
 
     var taskDebugger = false
 
@@ -14,7 +14,4 @@ abstract class TreeBot() : LoopingBot() {
         rootTask.findLeaf().execute()
     }
 
-    fun enableTaskDebugger() = {
-        taskDebugger = true
-    }
 }
