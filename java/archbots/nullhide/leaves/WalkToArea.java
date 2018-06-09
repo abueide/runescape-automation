@@ -4,7 +4,7 @@ import com.runemate.game.api.hybrid.location.Area;
 import com.runemate.game.api.hybrid.location.navigation.Landmark;
 import com.runemate.game.api.hybrid.location.navigation.Traversal;
 import com.runemate.game.api.hybrid.location.navigation.web.WebPath;
-import com.runemate.game.api.script.framework.tree.LeafTask;
+import archapi.treebot.LeafTask;
 
 /**
  * NOTES:

@@ -3,17 +3,21 @@ package archapi.tasks.skills.magic
 import archapi.treebot.BranchTask
 import archapi.treebot.TreeTask
 import archapi.treebot.UnitLeaf
-import archapi.tasks.animation.AnimationValidator
-import archapi.tasks.animation.Idle
+import archapi.tasks.bank.BankValidator
 import archapi.tasks.general.ClickItem
+import archapi.treebot.InlineLeafTask
+import com.runemate.game.api.hybrid.local.hud.interfaces.InterfaceWindows
+import com.runemate.game.api.hybrid.local.hud.interfaces.Inventory
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
+import com.runemate.game.api.script.Execution
 
 class CastSpellOnItem(val magic: Magic, val item: String) : BranchTask() {
-    val success =
-            AnimationValidator(-1,
-                    Idle(),
-                    SpellSelectedValidator(magic,
-                            ClickItem(item)))
+    val success = BankValidator(false, SpellSelectedValidator(magic,
+            InlineLeafTask {
+                Execution.delayUntil({ InterfaceWindows.getInventory().isOpen }, 600, 800)
+                ClickItem(item).execute()
+                Execution.delayUntil({ InterfaceWindows.getMagic().isOpen }, 600, 800)
+            }))
 
     override fun validate(): Boolean = true
 

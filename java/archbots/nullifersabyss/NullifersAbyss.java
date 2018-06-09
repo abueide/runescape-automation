@@ -2,8 +2,8 @@ package archbots.nullifersabyss;
 
 import com.runemate.game.api.client.embeddable.EmbeddableUI;
 import com.runemate.game.api.hybrid.util.Resources;
-import com.runemate.game.api.script.framework.tree.TreeBot;
-import com.runemate.game.api.script.framework.tree.TreeTask;
+import archapi.treebot.TreeBot;
+import archapi.treebot.TreeTask;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +19,7 @@ public class NullifersAbyss extends TreeBot implements EmbeddableUI {
     public NullifersAbyss() {
         setLoopDelay(220, 400);
         setEmbeddableUI(this);
+        setRootTask(new archbots.nullhide.Root());
     }
 
     @Override
@@ -35,11 +36,5 @@ public class NullifersAbyss extends TreeBot implements EmbeddableUI {
             }
         }
         return botInterfaceProperty;
-    }
-
-    @Override
-    public TreeTask createRootTask() {
-        pause();
-        return new Root();
     }
 }

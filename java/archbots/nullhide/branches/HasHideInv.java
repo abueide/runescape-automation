@@ -1,8 +1,8 @@
 package archbots.nullhide.branches;
 
 import com.runemate.game.api.hybrid.local.hud.interfaces.Inventory;
-import com.runemate.game.api.script.framework.tree.BranchTask;
-import com.runemate.game.api.script.framework.tree.TreeTask;
+import archapi.treebot.BranchTask;
+import archapi.treebot.TreeTask;
 import archbots.nullhide.leaves.LoadPreset;
 import archbots.nullhide.leaves.TanHide;
 import archbots.nullhide.util.PrefWrapper;

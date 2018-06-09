@@ -14,7 +14,7 @@
     <internal-id>nullifer.archzulrahtrainer</internal-id>
     <!--The rest are optional-->
     <open-source>false</open-source>
-    <hidden>true</hidden> <!--If you need to hide it from the bot store for maintenance-->
+    <hidden>false</hidden> <!--If you need to hide it from the bot store for maintenance-->
     <access>private</access>
     <tags>
         <tag>other</tag>

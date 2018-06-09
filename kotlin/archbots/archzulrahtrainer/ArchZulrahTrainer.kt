@@ -1,7 +1,7 @@
 package archbots.archzulrahtrainer
 
+import archapi.tasks.location.ValidateLocation
 import archapi.treebot.TreeBot
-import archapi.tasks.skills.magic.CastSpellOnItem
 import com.runemate.game.api.client.embeddable.EmbeddableUI
 import com.runemate.game.api.script.framework.listeners.SkillListener
 import com.runemate.game.api.script.framework.listeners.events.SkillEvent
@@ -10,12 +10,17 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import com.runemate.game.api.hybrid.local.Skill
 import archapi.tasks.skills.magic.CastSpellOnNPC
+import archapi.tasks.skills.magic.CastSuperHeat
 import archbots.archzulrahtrainer.ui.controller.ArchZulrahTrainerController
+import com.runemate.game.api.hybrid.RuneScape
+import com.runemate.game.api.hybrid.location.Coordinate
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
+import com.runemate.game.api.script.Execution
 
 class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener{
     //TODO: Implement in settings
     val target = "Grizzly bear"
+    val targetLocation = Coordinate(3226, 3500, 0)
 
 
     private val botInterfaceProperty by lazy {
@@ -34,21 +39,26 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener{
 
     fun setTask(){
         when(Skill.MAGIC.baseLevel){
-            in 1..2 -> rootTask = CastSpellOnNPC(Magic.WIND_STRIKE, target)
-            in 3..10 -> rootTask = CastSpellOnNPC(Magic.CONFUSE, target)
-            in 11..18 -> rootTask = CastSpellOnNPC(Magic.WEAKEN, target)
-            in 19..42 -> rootTask = CastSpellOnNPC(Magic.CURSE, target)
+            in 1..2 -> rootTask = ValidateLocation(targetLocation, CastSpellOnNPC(Magic.WIND_STRIKE, target))
+            in 3..10 -> rootTask = ValidateLocation(targetLocation, CastSpellOnNPC(Magic.CONFUSE, target))
+            in 11..18 -> rootTask = ValidateLocation(targetLocation, CastSpellOnNPC(Magic.WEAKEN, target))
+            in 19..42 -> rootTask =  ValidateLocation(targetLocation, CastSpellOnNPC(Magic.CURSE, target))
             in 43..54 ->
                 if(Skill.SMITHING.baseLevel < 15)
-                    rootTask = CastSpellOnItem(Magic.SUPERHEAT_ITEM, "Tin ore")
+                    rootTask = CastSuperHeat("bronze")
                 else
-                    rootTask = CastSpellOnItem(Magic.SUPERHEAT_ITEM, "Iron ore")
-            in 55..66 -> {}
+                    rootTask = CastSuperHeat("iron")
+            in 55..66 -> {
+                //TODO: Refactor into leaf task
+                RuneScape.logout()
+                Execution.delayUntil({!RuneScape.isLoggedIn()})
+                stop("Finished tasks")
+            }
         }
     }
 
     override fun onStart(vararg arguments: String?) {
-        setLoopDelay(100, 220)
+        setLoopDelay(240, 300)
         eventDispatcher.addListener(this)
     }
 

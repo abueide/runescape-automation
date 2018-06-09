@@ -9,11 +9,7 @@ import archapi.tasks.general.ClickNPC
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
 class CastSpellOnNPC(val magic: Magic, val target: String) : BranchTask() {
-    val success =
-            AnimationValidator(-1, //Task specific arguments followed by failure and success task
-                    Idle(),
-                    SpellSelectedValidator(magic,
-                            ClickNPC(target)))
+    val success = SpellSelectedValidator(magic, ClickNPC(target))
 
     override fun validate(): Boolean = true
 

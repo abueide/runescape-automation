@@ -9,7 +9,7 @@ import com.runemate.game.api.hybrid.location.navigation.basic.ViewportPath;
 import com.runemate.game.api.hybrid.queries.results.SpriteItemQueryResults;
 import com.runemate.game.api.hybrid.region.Players;
 import com.runemate.game.api.script.Execution;
-import com.runemate.game.api.script.framework.tree.LeafTask;
+import archapi.treebot.LeafTask;
 import archbots.nullhide.util.Globals;
 import archbots.nullhide.util.PrefWrapper;
 

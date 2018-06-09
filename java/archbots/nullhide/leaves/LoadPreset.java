@@ -1,7 +1,7 @@
 package archbots.nullhide.leaves;
 
 import com.runemate.game.api.hybrid.local.hud.interfaces.Bank;
-import com.runemate.game.api.script.framework.tree.LeafTask;
+import archapi.treebot.LeafTask;
 import archbots.nullhide.util.Globals;
 
 public class LoadPreset extends LeafTask {

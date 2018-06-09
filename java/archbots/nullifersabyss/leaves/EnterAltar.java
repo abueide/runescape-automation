@@ -1,6 +1,6 @@
 package archbots.nullifersabyss.leaves;
 
-import com.runemate.game.api.script.framework.tree.LeafTask;
+import archapi.treebot.LeafTask;
 
 /**
  * NOTES:

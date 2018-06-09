@@ -5,6 +5,7 @@ import archapi.treebot.InlineLeafTask
 import archapi.treebot.TreeTask
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
+//For selecting spells that don't open a new interface
 class SpellSelectedValidator(val magic: Magic, val success: TreeTask): BranchTask(){
     override fun validate(): Boolean = magic.isSelected
 

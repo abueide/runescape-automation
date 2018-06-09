@@ -1,11 +1,14 @@
 package archapi.tasks.location
 
+import archapi.treebot.BranchTask
+import archapi.treebot.TreeTask
 import com.runemate.game.api.hybrid.location.Area
+import com.runemate.game.api.hybrid.location.Coordinate
 import com.runemate.game.api.hybrid.region.Players
-import com.runemate.game.api.script.framework.tree.BranchTask
-import com.runemate.game.api.script.framework.tree.TreeTask
 
-class ValidateArea(val area: Area, val success: TreeTask): BranchTask() {
+class ValidateLocation(val area: Area, val success: TreeTask): BranchTask() {
+    constructor(coordinate: Coordinate, success: TreeTask): this(Area.Circular(coordinate, 5.0), success)
+
     override fun validate(): Boolean = area.contains(Players.getLocal())
     override fun failureTask(): TreeTask = WalkTo(area)
     override fun successTask(): TreeTask = success

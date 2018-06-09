@@ -7,7 +7,7 @@ import com.runemate.game.api.hybrid.region.GameObjects;
 import com.runemate.game.api.hybrid.region.Players;
 import com.runemate.game.api.rs3.local.hud.interfaces.MakeXInterface;
 import com.runemate.game.api.script.Execution;
-import com.runemate.game.api.script.framework.tree.LeafTask;
+import archapi.treebot.LeafTask;
 import archbots.nullhide.util.Globals;
 
 /**
