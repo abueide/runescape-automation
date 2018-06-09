@@ -1,4 +1,4 @@
-package archapi.treebot.framework
+package archapi.treebot
 
 abstract class BranchTask: TreeTask() {
     abstract fun failureTask(): TreeTask
