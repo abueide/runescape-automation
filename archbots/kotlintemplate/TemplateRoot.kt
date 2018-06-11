@@ -1,12 +1,11 @@
 package archbots.kotlintemplate
 
-import com.runemate.game.api.script.framework.tree.BranchTask
-import com.runemate.game.api.script.framework.tree.TreeTask
-import archbots.kotlintemplate.treebot.leaves.Idle
+import archapi.treebot.BranchTask
+import archapi.treebot.TreeTask
+import archapi.treebot.UnitLeaf
 
 class TemplateRoot: BranchTask(){
-    val idle = Idle()
     override fun validate(): Boolean = true
-    override fun failureTask(): TreeTask? = null
-    override fun successTask(): TreeTask  = idle
+    override fun failureTask(): TreeTask = UnitLeaf(this)
+    override fun successTask(): TreeTask  = UnitLeaf(this)
 }

@@ -19,12 +19,12 @@
                <content>
                   <VBox fx:id="aboutMain" alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="Arch Zulrah Trainer" textFill="#0707ee">
+                        <Label text="Arch Zulrah Trainer" textFill="#00b8dd">
                            <font>
                               <Font name="System Bold" size="32.0" />
                            </font>
                         </Label>
-                        <Label text="by Nullifer">
+                        <Label text="by Nullifer" textFill="#00b8dd">
                            <font>
                               <Font size="18.0" />
                            </font>

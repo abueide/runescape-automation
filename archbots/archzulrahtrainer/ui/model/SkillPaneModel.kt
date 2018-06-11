@@ -6,9 +6,10 @@ import java.util.concurrent.TimeUnit
 
 class SkillPaneModel(val skill: Skill,
                      val goalLevel: Int = skill.baseLevel + 1,
-                     var xpPerHour: Int = 0,
-                     var xpToLevel: Int = Skills.getExperienceAt(goalLevel) - skill.experience,
-                     var timeToLevel: TimeUnit = TimeUnit.HOURS){
-    init {
-    }
+                     var xpgained: Long = 0,
+                     var xpPerHour: Long = 0,
+                     var xpToLevel: Int = Skills.getExperienceAt(goalLevel) - skill.experience
+                     ){
+
+    constructor(skill: Skill): this(skill, 0, 0, 0, 0)
 }

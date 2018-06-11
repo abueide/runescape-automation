@@ -1,5 +1,6 @@
 package archbots.archzulrahtrainer
 
+import archapi.tasks.animation.AnimationValidator
 import archapi.tasks.animation.DebugAnimation
 import archapi.tasks.location.ValidateLocation
 import archapi.tasks.skills.magic.*
@@ -13,10 +14,14 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import com.runemate.game.api.hybrid.local.Skill
 import archbots.archzulrahtrainer.ui.controller.ArchZulrahTrainerController
+import archbots.nullhide.leaves.Logout
+import com.runemate.game.api.hybrid.local.hud.interfaces.Inventory
 import com.runemate.game.api.hybrid.location.Coordinate
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
 class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
+    val controller = ArchZulrahTrainerController(platform)
+
     //TODO: Implement in settings
     val target = "Grizzly bear"
     val targetLocation = Coordinate(3226, 3500, 0)
@@ -26,7 +31,7 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
 
     private val botInterfaceProperty by lazy {
         FXMLLoader().also {
-            it.setController(ArchZulrahTrainerController(platform))
+            it.setController(controller)
         }.let {
             SimpleObjectProperty(it.load(javaClass.classLoader.getResourceAsStream("archbots/archzulrahtrainer/ui/fxml/main.fxml")) as Node)
         }
@@ -34,13 +39,29 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
 
     init {
         setEmbeddableUI(this)
-        taskDebugger = true
+        rootTask = InlineLeafTask {}
+//        taskDebugger = true
         setTask()
     }
 
     override fun onStart(vararg arguments: String?) {
+        super.onStart(*arguments)
         setLoopDelay(300, 350)
         eventDispatcher.addListener(this)
+        eventDispatcher.addListener(controller)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setTask()
+    }
+
+    override fun botInterfaceProperty() = botInterfaceProperty
+
+    override fun onLevelUp(event: SkillEvent?) {
+        if (event != null) {
+            setTask()
+        }
     }
 
     fun setTask() {
@@ -55,33 +76,22 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
                 else
                     rootTask = CastSuperHeat("iron")
             in 55..65 -> rootTask = TeleAlch(alchItem, teleport)
-            in 66..72 -> rootTask =
-                    ValidateLocation(targetLocation,
-                            AlternateTask(
-                                    CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
-                                    CastSpellOnNPC(Magic.ENFEEBLE, target)))
-            in 73..79 ->
-                ValidateLocation(targetLocation,
-                        AlternateTask(
-                                CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
-                                CastSpellOnNPC(Magic.VULNERABILITY, target)))
-            in 80..85 ->
-                ValidateLocation(targetLocation,
-                        AlternateTask(
-                                CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
-                                CastSpellOnNPC(Magic.STUN, target)))
+            in 66..100 -> rootTask = Logout()
+//            in 66..72 -> rootTask =
+//                    ValidateLocation(targetLocation,
+//                            AlternateTask(
+//                                    CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
+//                                    CastSpellOnNPC(Magic.ENFEEBLE, target)))
+//            in 73..79 ->
+//                ValidateLocation(targetLocation,
+//                        AlternateTask(
+//                                CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
+//                                CastSpellOnNPC(Magic.VULNERABILITY, target)))
+//            in 80..85 ->
+//                ValidateLocation(targetLocation,
+//                        AlternateTask(
+//                                CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
+//                                CastSpellOnNPC(Magic.STUN, target)))
         }
     }
-
-
-    override fun botInterfaceProperty() = botInterfaceProperty
-
-    override fun onExperienceGained(event: SkillEvent?) {}
-
-    override fun onLevelUp(event: SkillEvent?) {
-        if (event != null) {
-            setTask()
-        }
-    }
-
 }
