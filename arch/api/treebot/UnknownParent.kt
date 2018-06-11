@@ -1,6 +1,6 @@
 package arch.api.treebot
 
-class UnknownParent: LeafTask(){
+class UnknownParent : LeafTask() {
     override fun execute() {
 
     }

@@ -11,7 +11,7 @@ class ClickItem(val item: String) : LeafTask() {
         val selected = Magic.getSelected()
 
         if (selected != null && !InterfaceWindows.getInventory().isOpen) {
-                selected.deactivate()
+            selected.deactivate()
         }
 
         if (!results.isEmpty())

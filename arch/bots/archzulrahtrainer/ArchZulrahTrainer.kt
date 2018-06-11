@@ -2,20 +2,22 @@ package arch.bots.archzulrahtrainer
 
 import arch.api.tasks.general.Logout
 import arch.api.tasks.location.ValidateLocation
-import arch.api.tasks.skills.magic.*
+import arch.api.tasks.skills.magic.CastSpellOnNPC
+import arch.api.tasks.skills.magic.CastSuperHeat
+import arch.api.tasks.skills.magic.TeleAlch
 import arch.api.treebot.InlineLeafTask
 import arch.api.treebot.TreeBot
+import arch.bots.archzulrahtrainer.ui.controller.ArchZulrahTrainerController
 import com.runemate.game.api.client.embeddable.EmbeddableUI
+import com.runemate.game.api.hybrid.local.Skill
+import com.runemate.game.api.hybrid.location.Coordinate
+import com.runemate.game.api.hybrid.util.Resources
+import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 import com.runemate.game.api.script.framework.listeners.SkillListener
 import com.runemate.game.api.script.framework.listeners.events.SkillEvent
 import javafx.beans.property.SimpleObjectProperty
 import javafx.fxml.FXMLLoader
 import javafx.scene.Node
-import com.runemate.game.api.hybrid.local.Skill
-import arch.bots.archzulrahtrainer.ui.controller.ArchZulrahTrainerController
-import com.runemate.game.api.hybrid.location.Coordinate
-import com.runemate.game.api.hybrid.util.Resources
-import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
 class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
     val controller = ArchZulrahTrainerController(platform)

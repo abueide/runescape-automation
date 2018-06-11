@@ -8,7 +8,7 @@ class SkillPaneModel(val skill: Skill,
                      val goalLevel: Int = skill.baseLevel + 1,
                      var xpPerHour: Int = 0,
                      var xpToLevel: Int = Skills.getExperienceAt(goalLevel) - skill.experience,
-                     var timeToLevel: TimeUnit = TimeUnit.HOURS){
+                     var timeToLevel: TimeUnit = TimeUnit.HOURS) {
     init {
     }
 }

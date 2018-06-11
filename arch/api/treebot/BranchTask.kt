@@ -1,6 +1,6 @@
 package arch.api.treebot
 
-abstract class BranchTask: TreeTask() {
+abstract class BranchTask : TreeTask() {
     abstract fun failureTask(): TreeTask
     abstract fun successTask(): TreeTask
     abstract fun validate(): Boolean

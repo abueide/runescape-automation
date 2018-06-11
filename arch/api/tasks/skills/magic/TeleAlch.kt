@@ -14,10 +14,10 @@ class TeleAlch(val item: String, val teleport: Magic) : BranchTask() {
             AnimationValidator(714,
                     AnimationValidator(713,
                             AnimationValidator(-1,
-                                    InlineLeafTask{},
+                                    InlineLeafTask {},
                                     CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, item)),
-                            InlineLeafTask{teleport.activate()}),
-                    SpellSelectedValidator(Magic.HIGH_LEVEL_ALCHEMY, InlineLeafTask{}))
+                            InlineLeafTask { teleport.activate() }),
+                    SpellSelectedValidator(Magic.HIGH_LEVEL_ALCHEMY, InlineLeafTask {}))
 
     override fun validate(): Boolean = true
 }

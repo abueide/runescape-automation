@@ -1,9 +1,9 @@
 package arch.api.tasks.skills.magic
 
+import arch.api.tasks.general.ClickNPC
 import arch.api.treebot.BranchTask
 import arch.api.treebot.TreeTask
 import arch.api.treebot.UnitLeaf
-import arch.api.tasks.general.ClickNPC
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
 class CastSpellOnNPC(val magic: Magic, val target: String) : BranchTask() {

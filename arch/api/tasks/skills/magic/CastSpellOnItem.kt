@@ -1,11 +1,11 @@
 package arch.api.tasks.skills.magic
 
-import arch.api.treebot.BranchTask
-import arch.api.treebot.TreeTask
-import arch.api.treebot.UnitLeaf
 import arch.api.tasks.bank.BankValidator
 import arch.api.tasks.general.ClickItem
+import arch.api.treebot.BranchTask
 import arch.api.treebot.InlineLeafTask
+import arch.api.treebot.TreeTask
+import arch.api.treebot.UnitLeaf
 import com.runemate.game.api.hybrid.local.hud.interfaces.InterfaceWindows
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 import com.runemate.game.api.script.Execution

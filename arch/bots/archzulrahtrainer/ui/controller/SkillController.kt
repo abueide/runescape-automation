@@ -14,14 +14,21 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.roundToLong
 
-class SkillController(val botPlatform: BotPlatform, val model: SkillPaneModel): Initializable{
-    @FXML var levelsgained: Label? = null
-    @FXML var xpgained: Label? = null
-    @FXML var xphr: Label? = null
-    @FXML var xptolevel: Label? = null
-    @FXML var timetolevel: Label? = null
-    @FXML var xptogoal: Label? = null
-    @FXML var timetogoal: Label? = null
+class SkillController(val botPlatform: BotPlatform, val model: SkillPaneModel) : Initializable {
+    @FXML
+    var levelsgained: Label? = null
+    @FXML
+    var xpgained: Label? = null
+    @FXML
+    var xphr: Label? = null
+    @FXML
+    var xptolevel: Label? = null
+    @FXML
+    var timetolevel: Label? = null
+    @FXML
+    var xptogoal: Label? = null
+    @FXML
+    var timetogoal: Label? = null
 
     val titlePane = TitledPane()
 
@@ -40,5 +47,5 @@ class SkillController(val botPlatform: BotPlatform, val model: SkillPaneModel): 
             xphr?.text = model.xpPerHour.toString()
         }
     }
-    }
+}
 
