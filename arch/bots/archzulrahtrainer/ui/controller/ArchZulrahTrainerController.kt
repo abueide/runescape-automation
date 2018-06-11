@@ -32,7 +32,7 @@ class ArchZulrahTrainerController(val platform: BotPlatform) : Initializable, Sk
     var skillpanecontrollers = ArrayList<SkillController>()
 
     override fun initialize(p0: URL?, p1: ResourceBundle?) {
-        aboutMain?.stylesheets?.addAll(Resources.getAsString("arch/bots/archzulrahtrainer/ui/fxml/background.css", Charset.defaultCharset()))
+        aboutMain?.stylesheets?.addAll(Resources.getAsURL("arch/bots/archzulrahtrainer/ui/fxml/background.css").toExternalForm())
         val panes = expdisplay?.panes
         if (panes != null)
             panes.add(TitledPane("Total",FXMLLoader().also {
