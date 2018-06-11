@@ -7,7 +7,7 @@ import com.runemate.game.api.script.framework.listeners.events.SkillEvent
 import javafx.beans.property.SimpleObjectProperty
 import javafx.fxml.FXMLLoader
 import javafx.scene.Node
-import arch.bots.kotlintemplatebot.ui.controller.KotlinTemplateController
+import arch.bots.kotlintemplate.ui.controller.KotlinTemplateController
 import com.runemate.game.api.hybrid.util.Resources
 
 class KotlinTemplate : TreeBot(), EmbeddableUI, SkillListener{

@@ -1,5 +1,6 @@
 package arch.bots.archzulrahtrainer
 
+import arch.api.tasks.general.Logout
 import arch.api.tasks.location.ValidateLocation
 import arch.api.tasks.skills.magic.*
 import arch.api.treebot.InlineLeafTask
@@ -12,7 +13,6 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Node
 import com.runemate.game.api.hybrid.local.Skill
 import arch.bots.archzulrahtrainer.ui.controller.ArchZulrahTrainerController
-import arch.bots.nullhide.leaves.Logout
 import com.runemate.game.api.hybrid.location.Coordinate
 import com.runemate.game.api.hybrid.util.Resources
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
