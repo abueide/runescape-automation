@@ -6,6 +6,7 @@ import arch.api.treebot.BranchTask
 import arch.api.treebot.InlineLeafTask
 import arch.api.treebot.TreeTask
 import arch.api.treebot.UnitLeaf
+import com.runemate.game.api.hybrid.input.Mouse
 import com.runemate.game.api.hybrid.local.hud.interfaces.InterfaceWindows
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 import com.runemate.game.api.script.Execution

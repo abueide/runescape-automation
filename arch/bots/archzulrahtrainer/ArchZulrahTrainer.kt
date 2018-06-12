@@ -39,8 +39,7 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
 
     init {
         setEmbeddableUI(this)
-        rootTask = InlineLeafTask {}
-//        taskDebugger = true
+        taskDebugger = true
         setTask()
     }
 
@@ -49,11 +48,6 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
         setLoopDelay(300, 350)
         eventDispatcher.addListener(this)
         eventDispatcher.addListener(controller)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        setTask()
     }
 
     override fun botInterfaceProperty() = botInterfaceProperty

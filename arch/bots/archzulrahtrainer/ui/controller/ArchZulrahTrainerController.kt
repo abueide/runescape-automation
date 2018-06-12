@@ -20,11 +20,11 @@ import java.util.*
 
 class ArchZulrahTrainerController(val platform: BotPlatform) : Initializable, SkillListener {
     @FXML
-    var aboutMain: VBox? = null
+    lateinit var aboutMain: VBox
     @FXML
-    var tabpane: TabPane? = null
+    lateinit var tabpane: TabPane
     @FXML
-    var expdisplay: Accordion? = null
+    lateinit var expdisplay: Accordion
 
     val totalcontroller = TotalController(platform, TotalModel())
     var skillpanecontrollers = ArrayList<SkillController>()
@@ -38,23 +38,23 @@ class ArchZulrahTrainerController(val platform: BotPlatform) : Initializable, Sk
     }
 
     override fun onExperienceGained(event: SkillEvent?) {
-        val panes = expdisplay?.panes
-        if (panes != null && event != null) {
-            if (!panes.map { pane -> pane.text }.contains(event.skill.name)) {
-                Platform.runLater {
-                    panes.add(TitledPane(event.skill.name, FXMLLoader().also {
-                        val controller = SkillController(platform, SkillPaneModel(event.skill))
-                        skillpanecontrollers.add(controller)
-                        it.setController(controller)
-                    }.load<Node>(Resources.getAsStream("arch/bots/archzulrahtrainer/ui/fxml/skillpane.fxml"))))
-                }
-            }
-            Platform.runLater {
-                val controller = skillpanecontrollers.filter { it.model.skill == event.skill }.first()
-                controller.gainExp(event.change)
-                totalcontroller.gainExp(event.change)
-            }
-
-        }
+//        Platform.runLater {
+//            val panes = expdisplay?.panes
+//            if (panes != null && event != null) {
+//                if (!panes.map { pane -> pane.text }.contains(event.skill.name)) {
+//                    Platform.runLater {
+//                        panes.add(TitledPane(event.skill.name, FXMLLoader().also {
+//                            val controller = SkillController(platform, SkillPaneModel(event.skill))
+//                            skillpanecontrollers.add(controller)
+//                            it.setController(controller)
+//                        }.load<Node>(Resources.getAsStream("arch/bots/archzulrahtrainer/ui/fxml/skillpane.fxml"))))
+//                    }
+//                }
+//                val controller = skillpanecontrollers.filter { it.model.skill == event.skill }.first()
+//                controller.gainExp(event.change)
+//                totalcontroller.gainExp(event.change)
+//
+//            }
+//        }
     }
 }

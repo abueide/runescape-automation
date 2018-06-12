@@ -15,7 +15,7 @@ class KotlinTemplate : TreeBot(), EmbeddableUI, SkillListener {
         FXMLLoader().also {
             it.setController(KotlinTemplateController(platform))
         }.let {
-            SimpleObjectProperty(it.load(Resources.getAsStream("main.fxml")) as Node)
+            SimpleObjectProperty(it.load(Resources.getAsStream("arch/bots/kotlintemplate/ui/fxml/main.fxml")) as Node)
         }
     }
 
@@ -26,7 +26,7 @@ class KotlinTemplate : TreeBot(), EmbeddableUI, SkillListener {
 
     override fun onStart(vararg arguments: String?) {
         super.onStart(*arguments)
-        setLoopDelay(100, 190)
+        setLoopDelay(0, 0)
         eventDispatcher.addListener(this)
     }
 
