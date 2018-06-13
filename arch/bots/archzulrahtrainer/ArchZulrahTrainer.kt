@@ -45,7 +45,7 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
 
     override fun onStart(vararg arguments: String?) {
         super.onStart(*arguments)
-        setLoopDelay(300, 350)
+        setLoopDelay(83, 162)
         eventDispatcher.addListener(this)
         eventDispatcher.addListener(controller)
     }

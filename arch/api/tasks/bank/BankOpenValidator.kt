@@ -11,7 +11,7 @@ import com.runemate.game.api.hybrid.location.navigation.Traversal
 import com.runemate.game.api.hybrid.region.Banks
 import com.runemate.game.api.osrs.local.hud.interfaces.Magic
 
-class BankValidator(val bankShouldBeOpen: Boolean, val success: TreeTask) : BranchTask() {
+class BankOpenValidator(val bankShouldBeOpen: Boolean, val success: TreeTask) : BranchTask() {
     //We only want to return success task if we want the bank to be open and it isopen,
     //or if we want the bank closed and it is closed
     //So we validate Bank.isOpen() == bankShouldBeOpen
@@ -37,7 +37,11 @@ class BankValidator(val bankShouldBeOpen: Boolean, val success: TreeTask) : Bran
                 return openBank
             else
             //Walk to bank if one is not visible
-                return InlineLeafTask { Traversal.getDefaultWeb().pathBuilder.buildTo(Landmark.BANK).step() }
+                return InlineLeafTask {
+                    val path = Traversal.getDefaultWeb().pathBuilder.buildTo(Landmark.BANK)
+                    if(path != null)
+                        path.step()
+                }
 
         } else {
             //Close the bank if it is open and we want it closed
