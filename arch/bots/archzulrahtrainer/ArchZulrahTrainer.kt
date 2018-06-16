@@ -4,6 +4,7 @@ import arch.api.tasks.general.Logout
 import arch.api.tasks.location.ValidateLocation
 import arch.api.tasks.skills.magic.CastSpellOnNPC
 import arch.api.tasks.skills.magic.CastSuperHeat
+import arch.api.tasks.skills.magic.CurseAlch
 import arch.api.tasks.skills.magic.TeleAlch
 import arch.api.treebot.InlineLeafTask
 import arch.api.treebot.TreeBot
@@ -70,22 +71,10 @@ class ArchZulrahTrainer : TreeBot(), EmbeddableUI, SkillListener {
                 else
                     rootTask = CastSuperHeat("iron")
             in 55..65 -> rootTask = TeleAlch(alchItem, teleport)
-            in 66..100 -> rootTask = Logout()
-//            in 66..72 -> rootTask =
-//                    ValidateLocation(targetLocation,
-//                            AlternateTask(
-//                                    CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
-//                                    CastSpellOnNPC(Magic.ENFEEBLE, target)))
-//            in 73..79 ->
-//                ValidateLocation(targetLocation,
-//                        AlternateTask(
-//                                CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
-//                                CastSpellOnNPC(Magic.VULNERABILITY, target)))
-//            in 80..85 ->
-//                ValidateLocation(targetLocation,
-//                        AlternateTask(
-//                                CastSpellOnItem(Magic.HIGH_LEVEL_ALCHEMY, alchItem),
-//                                CastSpellOnNPC(Magic.STUN, target)))
+            in 66..72 -> rootTask = CurseAlch(alchItem, target, Magic.ENFEEBLE)
+            in 73..79 -> rootTask = CurseAlch(alchItem, target, Magic.ENFEEBLE)
+            in 80..85 -> rootTask = CurseAlch(alchItem, target, Magic.STUN)
+            in 86..100 -> rootTask = Logout("Finished tasks")
         }
     }
 }
