@@ -6,7 +6,7 @@ made using JavaFX, some bots using the framework, and an item ordering system fo
 
 ## Code
 
-This project uses a binary tree framework to represent the decision making of the automation software. Tasks are
+This project uses a binary tree framework to represent the decision making of the automation software. Actions are
 are represented by a LeafTask, while decision making is represented by a BranchTask. TreeTask is a superclass of
 BranchTask and LeafTask that contains a recursive function `findleaf` that traverses the tree and finds the leaf task to
 be executed on that loop.
